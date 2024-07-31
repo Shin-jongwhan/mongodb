@@ -77,16 +77,30 @@ db.dropDatabase();
 
 ### collection 생성
 ### db.createCollection(name, \[options\])
+### ex)
 ```
 db.createCollection("books")
+db.createCollection("articles", { capped: true, size: 6142800, max: 10000 })
 ```
+#### ![image](https://github.com/user-attachments/assets/71917096-763f-419d-8e58-67297926b289)
+### <br/>
+
 ### 옵션에는 다음과 같은 값들이 들어갈 수 있다.
+#### * 참고로 autoIndex 옵션은 deprecated 되었다.
 | Field     | Type    | 설명                                                                                                                                                                                                                                        |
 |-----------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | capped    | Boolean | 이 값을 true 로 설정하면 capped collection 을 활성화 시킵니다. Capped collection 이란, 고정된 크기(fixed size) 를 가진 컬렉션으로서, size 가 초과되면 가장 오래된 데이터를 덮어씁니다. 이 값을 true로 설정하면 size 값을 꼭 설정해야합니다. |
-| autoIndex | Boolean | 이 값을 true로 설정하면, _id 필드에 index를 자동으로 생성합니다. 기본값은 false 입니다.                                                                                                                                                     |
 | size      | number  | Capped collection 을 위해 해당 컬렉션의 최대 사이즈(maximum size)를 ~ bytes로 지정합니다.                                                                                                                                                   |
 | max       | number  | 해당 컬렉션에 추가 할 수 있는 최대 갯수를 설정합니다.                                                                                                                                                                                       |
 | max       | number  | 해당 컬렉션에 추가 할 수 있는 최대 갯수를 설정합니다.                                                                                                                                                                                       |
+### <br/>
+
+### collection 제거
+### db.COLLECTION_NAME.drop()
+### 있으면 true, 없거나 실패하면 false를 출력한다.
+```
+db.articles.drop()
+```
+#### ![image](https://github.com/user-attachments/assets/64bd67a3-c643-4b4f-86d7-8c4dde924097)
 ### <br/>
 
