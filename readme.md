@@ -10,4 +10,26 @@
 
 # 설치
 ### 나는 리눅스 기반으로 진행하였다.
+### 우분투 Ubuntu 18.04.6 LTS 버전
+### 
+```
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 68818C72E52529D4
+sudo apt update -y
+sudo apt-get install -y mongodb-org
+```
+### <br/>
 
+### 설치 확인
+#### ![image](https://github.com/user-attachments/assets/1b544216-9320-4206-a813-49207e01ef0c)
+### <br/>
+
+### service start
+```
+sudo service mongod start
+```
+### <br/>
+
+### service start 확인
+```
+cat /var/log/mongodb/mongod.log
+```
