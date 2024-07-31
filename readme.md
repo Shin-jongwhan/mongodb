@@ -66,5 +66,12 @@ db.book.insert({"name": "MongoDB Tutorial", "author": "jhshin"});
 #### ![image](https://github.com/user-attachments/assets/ac7e4bc7-9adb-4f98-97a1-91c2e0adfc71)
 ### <br/>
 
+### 데이터베이스 제거
+### use를 먼저 쓰고 써야 한다.
+```
+use tutorial
+db.dropDatabase();
+```
+#### ![image](https://github.com/user-attachments/assets/b4c58c37-b1ee-425b-ad77-794835984ead)
 
 
