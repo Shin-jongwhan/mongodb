@@ -33,3 +33,11 @@ sudo service mongod start
 ```
 cat /var/log/mongodb/mongod.log
 ```
+### <br/>
+
+### mongodb 접속
+```
+mongo
+```
+#### ![image](https://github.com/user-attachments/assets/00325306-6c71-412d-b233-b7084380f539)
+
