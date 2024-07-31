@@ -225,6 +225,17 @@ db.books.find({$and : [{"num" : {$gte : 5}}, {"num" : {$lte : 10}}]})
 db.books.find({}, {"num": true})
 ```
 #### ![image](https://github.com/user-attachments/assets/09806d28-e92c-489c-bb9d-bef399d7e785)
+### <br/>
+
+### 정규식 사용
+### db.\[collection\].find({field : {$regex: '정규표현식'}})
+```
+db.books.find({"author" : {$regex:'^j'}})
+db.books.find({"author" : {$regex:'[a-z]'}})
+```
+#### ![image](https://github.com/user-attachments/assets/ee26b1ae-4356-4233-8b0d-0b43c381a6d3)
+
+
 ### <br/><br/><br/>
 
 ## document 삭제
