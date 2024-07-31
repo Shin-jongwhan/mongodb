@@ -132,7 +132,7 @@ db.books.insert(
 #### ![image](https://github.com/user-attachments/assets/13e471eb-1808-477c-b08f-e2f76bdad4a2)
 ### <br/><br/><br/>
 
-## collection에서 특정 document 찾기
+## collection에서 특정 document 찾기(데이터 조회하기)
 ### db.\[collection_name\].find()로 찾는다.
 ### 전체를 찾고 싶다면 find() 안에 아무 것도 넣지 않으면 되고, 특정 조건으로 찾고 싶다면 json 형식으로 넣어주면 된다.
 ```
@@ -149,6 +149,58 @@ db.books.find({"name":"mongoDB tutorial"});
 db.books.find().sort({"_id" : -1})
 ```
 #### ![image](https://github.com/user-attachments/assets/e5bd129f-64e0-481e-8e31-e2386cfb402c)
+### <br/>
+
+### 보기 좋게 출력하기
+### db.\[collection\].find().pretty()
+```
+db.books.find().pretty()
+```
+#### ![image](https://github.com/user-attachments/assets/02ab2992-4698-49b4-9186-13270c0df901)
+### <br/>
+
+### 출력할 때 사용하는 비교 연산자
+| operator | 설명                                                   |
+|----------|--------------------------------------------------------|
+| $eq      | (equals) 주어진 값과 일치하는 값                       |
+| $gt      | (greater than) 주어진 값보다 큰 값                     |
+| $gte     | (greather than or equals) 주어진 값보다 크거나 같은 값 |
+| $lt      | (less than) 주어진 값보다 작은 값                      |
+| $lte     | (less than or equals) 주어진 값보다 작거나 같은 값     |
+| $ne      | (not equal) 주어진 값과 일치하지 않는 값               |
+| $in      | 주어진 배열 안에 속하는 값                             |
+| $nin     | 주어빈 배열 안에 속하지 않는 값                        |
+### <br/>
+
+### 비교 연산자 사용하여 출력하기 예시
+### 다음의 예시 데이터를 insert 한다.
+```
+db.books.insert(
+  [
+    {"name": "mongoDB tutorial", "author": "jhshin", "num" : 1},
+    {"name": "mongoDB tutorial", "author": "jhshin", "num" : 2}, 
+    {"name": "mongoDB tutorial", "author": "jhshin", "num" : 3}, 
+    {"name": "mongoDB tutorial", "author": "jhshin", "num" : 4}, 
+    {"name": "mongoDB tutorial", "author": "jhshin", "num" : 5}, 
+    {"name": "mongoDB tutorial", "author": "jhshin", "num" : 6}, 
+    {"name": "mongoDB tutorial", "author": "jhshin", "num" : 7}, 
+    {"name": "mongoDB tutorial", "author": "jhshin", "num" : 8}, 
+    {"name": "mongoDB tutorial", "author": "jhshin", "num" : 9}, 
+    {"name": "mongoDB tutorial", "author": "jhshin", "num" : 10}, 
+    {"name": "mongoDB tutorial", "author": "jhshin", "num" : 11}, 
+    {"name": "mongoDB tutorial", "author": "jhshin", "num" : 12}, 
+    {"name": "mongoDB tutorial", "author": "jhshin", "num" : 13}, 
+  ]
+)
+```
+
+### 아래와 같이 find
+```
+db.books.find({"num" : {$lte : 10}})
+```
+#### ![image](https://github.com/user-attachments/assets/d5769522-bc3d-41ea-af0a-65e3ae4cc183)
+
+
 ### <br/><br/><br/>
 
 ## document 삭제
