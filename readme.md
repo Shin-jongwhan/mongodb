@@ -144,6 +144,7 @@ db.books.find({"name":"mongoDB tutorial"});
 
 ### 정렬 후 조회
 ### db.\[collection\].find().sort()를 사용한다.
+### -1은 내림차순 정렬이다.
 ```
 db.books.find().sort({"_id" : -1})
 ```
