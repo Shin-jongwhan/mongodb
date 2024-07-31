@@ -140,7 +140,7 @@ db.books.find();
 db.books.find({"name":"mongoDB tutorial"});
 ```
 #### ![image](https://github.com/user-attachments/assets/9727e5c6-8106-4c3e-a7fa-682f3bc60a9a)
-### <br/>
+### <br/><br/>
 
 ### 정렬 후 조회
 ### db.\[collection\].find().sort()를 사용한다.
@@ -149,7 +149,7 @@ db.books.find({"name":"mongoDB tutorial"});
 db.books.find().sort({"_id" : -1})
 ```
 #### ![image](https://github.com/user-attachments/assets/e5bd129f-64e0-481e-8e31-e2386cfb402c)
-### <br/>
+### <br/><br/>
 
 ### 보기 좋게 출력하기
 ### db.\[collection\].find().pretty()
@@ -157,7 +157,7 @@ db.books.find().sort({"_id" : -1})
 db.books.find().pretty()
 ```
 #### ![image](https://github.com/user-attachments/assets/02ab2992-4698-49b4-9186-13270c0df901)
-### <br/>
+### <br/><br/>
 
 ### 출력할 때 사용하는 비교 연산자
 | operator | 설명                                                   |
@@ -170,7 +170,7 @@ db.books.find().pretty()
 | $ne      | (not equal) 주어진 값과 일치하지 않는 값               |
 | $in      | 주어진 배열 안에 속하는 값                             |
 | $nin     | 주어빈 배열 안에 속하지 않는 값                        |
-### <br/>
+### <br/><br/>
 
 ### 비교 연산자 사용하여 출력하기 예시
 ### 다음의 예시 데이터를 insert 한다.
@@ -193,14 +193,38 @@ db.books.insert(
   ]
 )
 ```
+### <br/>
 
-### 아래와 같이 find
+### 아래와 같이 find 한다.
 ```
 db.books.find({"num" : {$lte : 10}})
 ```
 #### ![image](https://github.com/user-attachments/assets/d5769522-bc3d-41ea-af0a-65e3ae4cc183)
+### <br/><br/>
 
+### 논리 연산자
+| operator | 설명                                   |
+|----------|----------------------------------------|
+| $or      | 주어진 조건중 하나라도 true 일 때 true |
+| $and     | 주어진 모든 조건이 true 일 때 true     |
+| $not     | 주어진 조건이 false 일 때 true         |
+| $nor     | 주어진 모든 조건이 false 일때 true     |
+### <br/>
 
+### 논리 연산자를 사용할 때는 리스트 형태로 묶는다.
+### 다음의 예시는 5 <= num <= 10인 조건을 찾는다.
+```
+db.books.find({$and : [{"num" : {$gte : 5}}, {"num" : {$lte : 10}}]})
+```
+#### ![image](https://github.com/user-attachments/assets/3f300893-5c73-443f-b825-7232798ad4b1)
+### <br/>
+
+### 특정 key만 조회
+### 조건절 뒤에 {}로 조회할 key를 아래와 같이 작성한다.
+```
+db.books.find({}, {"num": true})
+```
+#### ![image](https://github.com/user-attachments/assets/09806d28-e92c-489c-bb9d-bef399d7e785)
 ### <br/><br/><br/>
 
 ## document 삭제
