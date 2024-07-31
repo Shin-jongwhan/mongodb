@@ -6,6 +6,13 @@
 ### 아래 블로그들을 참고하였다.
 - [몽고db 정말 잘 정리된 블로그](https://pycoding.tistory.com/entry/%EB%AA%BD%EA%B3%A0db-%EC%A0%95%EB%A7%90-%EC%9E%98-%EC%A0%95%EB%A6%AC%EB%90%9C-%EB%B8%94%EB%A1%9C%EA%B7%B8])
 - [Ubuntu MongoDB GPG 오류 해결](https://whackur.tistory.com/152)
+### <br/>
+
+### mongodb 공식 문서
+- remove 관련
+  - https://www.mongodb.com/ko-kr/docs/manual/reference/method/db.collection.remove/
+  - https://www.mongodb.com/ko-kr/docs/manual/reference/collation/
+  - https://www.mongodb.com/ko-kr/docs/manual/reference/collation-locales-defaults/
 ### <br/><br/><br/>
 
 # 설치
