@@ -52,7 +52,7 @@ use tutorial
 ### <br/>
 
 ### 데이터베이스 리스트 확인
-### 그런데 아직 데이터베이스가 보이지 않는다. 왜냐하면 ducument(RDBMS에서는 table)가 없기 때문이다.
+### 그런데 아직 데이터베이스가 보이지 않는다. 왜냐하면 ducument(key, value pair로 이루어진 하나의 단위)가 없기 때문이다.
 ```
 show dbs
 ```
@@ -73,5 +73,19 @@ use tutorial
 db.dropDatabase();
 ```
 #### ![image](https://github.com/user-attachments/assets/b4c58c37-b1ee-425b-ad77-794835984ead)
+### <br/>
 
+### collection 생성
+### db.createCollection(name, \[options\])
+```
+db.createCollection("books")
+```
+### 옵션에는 다음과 같은 값들이 들어갈 수 있다.
+| Field     | Type    | 설명                                                                                                                                                                                                                                        |   |   |   |   |
+|-----------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---|---|---|---|
+| capped    | Boolean | 이 값을 true 로 설정하면 capped collection 을 활성화 시킵니다. Capped collection 이란, 고정된 크기(fixed size) 를 가진 컬렉션으로서, size 가 초과되면 가장 오래된 데이터를 덮어씁니다. 이 값을 true로 설정하면 size 값을 꼭 설정해야합니다. |   |   |   |   |
+| autoIndex | Boolean | 이 값을 true로 설정하면, _id 필드에 index를 자동으로 생성합니다. 기본값은 false 입니다.                                                                                                                                                     |   |   |   |   |
+| size      | number  | Capped collection 을 위해 해당 컬렉션의 최대 사이즈(maximum size)를 ~ bytes로 지정합니다.                                                                                                                                                   |   |   |   |   |
+| max       | number  | 해당 컬렉션에 추가 할 수 있는 최대 갯수를 설정합니다.                                                                                                                                                                                       |   |   |   |   |
+| max       | number  | 해당 컬렉션에 추가 할 수 있는 최대 갯수를 설정합니다.    
 
