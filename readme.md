@@ -135,3 +135,27 @@ db.books.find({"name":"mongoDB tutorial"});
 #### ![image](https://github.com/user-attachments/assets/9727e5c6-8106-4c3e-a7fa-682f3bc60a9a)
 ### <br/><br/><br/>
 
+## document 삭제
+### db.\[collection_name\].remove(criteria, justOne)
+### 전체 삭제
+```
+db.books.remove({})
+```
+#### ![image](https://github.com/user-attachments/assets/191ec02a-0c8d-4e7c-8725-4a5aa9eff85c)
+### <br/>
+
+### 일부 조건으로 삭제
+```
+db.books.remove({"name" : "mongoDB tutorial"})
+```
+#### ![image](https://github.com/user-attachments/assets/78528c3d-0d03-44c8-ae2e-1617984f2c45)
+### <br/>
+
+
+### 일부 조건, 맨 처음에 추가된 document 삭제
+```
+db.books.remove({"name" : "mongoDB tutorial"}, {justOne: true})
+```
+#### ![image](https://github.com/user-attachments/assets/a0458103-0673-4ab8-9d53-2451e9691677)
+### <br/>
+
