@@ -52,7 +52,19 @@ use tutorial
 ### <br/>
 
 ### 데이터베이스 리스트 확인
+### 그런데 아직 데이터베이스가 보이지 않는다. 왜냐하면 ducument(RDBMS에서는 table)가 없기 때문이다.
 ```
 show dbs
 ```
 #### ![image](https://github.com/user-attachments/assets/b53feb7e-d207-4f59-960c-a9e002b36692)
+### <br/>
+
+### ducument를 하나 생성해준다.
+```
+db.book.insert({"name": "MongoDB Tutorial", "author": "jhshin"});
+```
+#### ![image](https://github.com/user-attachments/assets/ac7e4bc7-9adb-4f98-97a1-91c2e0adfc71)
+### <br/>
+
+
+
