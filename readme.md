@@ -158,7 +158,6 @@ db.books.remove({"name" : "mongoDB tutorial"})
 #### ![image](https://github.com/user-attachments/assets/78528c3d-0d03-44c8-ae2e-1617984f2c45)
 ### <br/>
 
-
 ### 일부 조건, 맨 처음에 추가된 document 삭제
 ```
 db.books.remove({"name" : "mongoDB tutorial"}, {justOne: true})
@@ -166,3 +165,50 @@ db.books.remove({"name" : "mongoDB tutorial"}, {justOne: true})
 #### ![image](https://github.com/user-attachments/assets/a0458103-0673-4ab8-9d53-2451e9691677)
 ### <br/>
 
+### 다른 옵션들도 있다.
+```
+db.collection.remove(
+    <query>,
+    {
+      justOne: <boolean>,
+      writeConcern: <document>,
+      collation: <document>,
+      let: <document> // Added in MongoDB 5.0
+    }
+)
+```
+#### ![image](https://github.com/user-attachments/assets/23b3d4f0-4ae4-48f2-9323-55c8ad4f031e)
+### <br/>
+
+### collation
+### 데이터 정렬을 할 때 사용하며 locale은 필수로 사용해야 한다고 한다.
+```
+{
+   locale: <string>,
+   caseLevel: <boolean>,
+   caseFirst: <string>,
+   strength: <int>,
+   numericOrdering: <boolean>,
+   alternate: <string>,
+   maxVariable: <string>,
+   backwards: <boolean>
+}
+```
+### collation locale 정보는 mongodb 공식 문서에 있다.
+```
+{ "locale" : "<locale code>@collation=<variant>" }
+```
+### 영어인 경우
+```
+{ "locale" : "en@collation=search" }
+```
+#### ![image](https://github.com/user-attachments/assets/6e2da9c7-e88b-48de-9d1a-a8873a61b06e)
+#### ![image](https://github.com/user-attachments/assets/6dc9ebdc-e8a8-4207-b293-c70808248274)
+### <br/>
+
+### 맨 마지막에 추가된 document 삭제
+```
+db.books.remove({"name" : "mongoDB tutorial"}, {justOne: true, collation: {locale: "en@collation=search", backwards: true}})
+```
+#### ![image](https://github.com/user-attachments/assets/dddd6dfe-b735-41e7-8c5b-9f04381df823)
+### <br/><br/><br/>
