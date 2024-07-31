@@ -98,7 +98,7 @@ db.createCollection("articles", { capped: true, size: 6142800, max: 10000 })
 ### <br/><br/><br/>
 
 ## collection 제거
-### db.COLLECTION_NAME.drop()
+### db.\[collection_name\].drop()
 ### 있으면 true, 없거나 실패하면 false를 출력한다.
 ```
 db.articles.drop()
@@ -123,3 +123,15 @@ db.books.insert(
 )
 ```
 #### ![image](https://github.com/user-attachments/assets/13e471eb-1808-477c-b08f-e2f76bdad4a2)
+### <br/><br/><br/>
+
+## collection에서 특정 document 찾기
+### db.\[collection_name\].find()로 찾는다.
+### 전체를 찾고 싶다면 find() 안에 아무 것도 넣지 않으면 되고, 특정 조건으로 찾고 싶다면 json 형식으로 넣어주면 된다.
+```
+db.books.find();
+db.books.find({"name":"mongoDB tutorial"});
+```
+#### ![image](https://github.com/user-attachments/assets/9727e5c6-8106-4c3e-a7fa-682f3bc60a9a)
+### <br/><br/><br/>
+
