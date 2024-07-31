@@ -40,4 +40,19 @@ cat /var/log/mongodb/mongod.log
 mongo
 ```
 #### ![image](https://github.com/user-attachments/assets/00325306-6c71-412d-b233-b7084380f539)
+### <br/><br/><br/>
 
+# 데이터베이스 사용하기
+### mongodb에 접속한 다음 먼저 데이터베이스를 생성한다.
+```
+use tutorial
+```
+#### ![image](https://github.com/user-attachments/assets/cb286ce8-003d-49aa-9a49-90baaf7ca3ea)
+
+### <br/>
+
+### 데이터베이스 리스트 확인
+```
+show dbs
+```
+#### ![image](https://github.com/user-attachments/assets/b53feb7e-d207-4f59-960c-a9e002b36692)
