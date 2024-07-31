@@ -207,8 +207,11 @@ db.collection.remove(
 ### <br/>
 
 ### 맨 마지막에 추가된 document 삭제
+### db.\[collection_name\].findOneAndDelete를 사용한다.
+### 그리고 _id 기준으로 내림차순으로 정렬한 후 삭제한다.
 ```
-db.books.remove({"name" : "mongoDB tutorial"}, {justOne: true, collation: {locale: "en@collation=search", backwards: true}})
+db.books.findOneAndDelete({"name" : "mongoDB tutorial"}, {sort: { _id: -1 }})
 ```
-#### ![image](https://github.com/user-attachments/assets/dddd6dfe-b735-41e7-8c5b-9f04381df823)
+#### ![image](https://github.com/user-attachments/assets/f7bd150d-d514-46ed-9ed5-aff8457a0d82)
+#### ![image](https://github.com/user-attachments/assets/dbebac17-1311-4324-a097-d03d258f5d77)
 ### <br/><br/><br/>
