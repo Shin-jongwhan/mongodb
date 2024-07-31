@@ -140,6 +140,14 @@ db.books.find();
 db.books.find({"name":"mongoDB tutorial"});
 ```
 #### ![image](https://github.com/user-attachments/assets/9727e5c6-8106-4c3e-a7fa-682f3bc60a9a)
+### <br/>
+
+### 정렬 후 조회
+### db.\[collection\].find().sort()를 사용한다.
+```
+db.books.find().sort({"_id" : -1})
+```
+#### ![image](https://github.com/user-attachments/assets/e5bd129f-64e0-481e-8e31-e2386cfb402c)
 ### <br/><br/><br/>
 
 ## document 삭제
