@@ -42,6 +42,8 @@ mongo
 #### ![image](https://github.com/user-attachments/assets/00325306-6c71-412d-b233-b7084380f539)
 ### <br/><br/><br/>
 
+-------------------------------------------------------------
+
 # 데이터베이스 사용하기
 ### mongodb에 접속한 다음 먼저 데이터베이스를 생성한다.
 ```
@@ -49,9 +51,9 @@ use tutorial
 ```
 #### ![image](https://github.com/user-attachments/assets/cb286ce8-003d-49aa-9a49-90baaf7ca3ea)
 
-### <br/>
+### <br/><br/><br/>
 
-### 데이터베이스 리스트 확인
+## 데이터베이스 리스트 확인
 ### 그런데 아직 데이터베이스가 보이지 않는다. 왜냐하면 ducument(key, value pair로 이루어진 하나의 단위)가 없기 때문이다.
 ```
 show dbs
@@ -64,18 +66,18 @@ show dbs
 db.book.insert({"name": "MongoDB Tutorial", "author": "jhshin"});
 ```
 #### ![image](https://github.com/user-attachments/assets/ac7e4bc7-9adb-4f98-97a1-91c2e0adfc71)
-### <br/>
+### <br/><br/><br/>
 
-### 데이터베이스 제거
+## 데이터베이스 제거
 ### use를 먼저 쓰고 써야 한다.
 ```
 use tutorial
 db.dropDatabase();
 ```
 #### ![image](https://github.com/user-attachments/assets/b4c58c37-b1ee-425b-ad77-794835984ead)
-### <br/>
+### <br/><br/>
 
-### collection 생성
+## collection 생성
 ### db.createCollection(name, \[options\])
 ### ex)
 ```
@@ -93,14 +95,31 @@ db.createCollection("articles", { capped: true, size: 6142800, max: 10000 })
 | size      | number  | Capped collection 을 위해 해당 컬렉션의 최대 사이즈(maximum size)를 ~ bytes로 지정합니다.                                                                                                                                                   |
 | max       | number  | 해당 컬렉션에 추가 할 수 있는 최대 갯수를 설정합니다.                                                                                                                                                                                       |
 | max       | number  | 해당 컬렉션에 추가 할 수 있는 최대 갯수를 설정합니다.                                                                                                                                                                                       |
-### <br/>
+### <br/><br/><br/>
 
-### collection 제거
+## collection 제거
 ### db.COLLECTION_NAME.drop()
 ### 있으면 true, 없거나 실패하면 false를 출력한다.
 ```
 db.articles.drop()
 ```
 #### ![image](https://github.com/user-attachments/assets/64bd67a3-c643-4b4f-86d7-8c4dde924097)
+### <br/><br/><br/>
+
+## document 추가
+### 한 row 추가하는 방법
+```
+db.books.insert({"name": "mongoDB tutorial", "author": "jhshin"})
+```
 ### <br/>
 
+### 여러 줄 추가하는 방법
+```
+db.books.insert(
+  [
+    {"name": "mongoDB tutorial", "author": "jhshin"},
+    {"name": "mongoDB tutorial 2", "author": "jhshin"}
+  ]
+)
+```
+#### ![image](https://github.com/user-attachments/assets/13e471eb-1808-477c-b08f-e2f76bdad4a2)
