@@ -410,4 +410,30 @@ db.books.findOneAndDelete({"name" : "mongoDB tutorial"}, {sort: { _id: -1 }})
 db.books.update({}, {$set : {arr : [1,2,3,4,5,6,7]}}, {multi : true})
 ```
 #### ![image](https://github.com/user-attachments/assets/a98e789e-8a36-4972-b738-584c7e2ce46d)
+### <br/><br/><br/>
+
+
+## variant
+### mongodb는 variant 사용하는 것을 지원한다.
+### ex)
+```
+var n = 2
+db.books.find().sort({"_id" : -1}).skip(n)
+```
+#### ![image](https://github.com/user-attachments/assets/b2dc04ac-3cf4-4ca6-a574-f0d7aaf70cad)
+### <br/><br/><br/>
+
+## function
+### mongodb는 function 사용하는 것을 지원한다. 뭔가 javascript 같다.
+```
+var test = function(page) {
+  return db.books.find().sort({"_id" : -1}).skip(page)
+}
+test(0)
+test(1)
+test(2)
+```
+#### ![image](https://github.com/user-attachments/assets/5f0f9c64-ae0f-433e-ab51-a58dc2ab6cd6)
+### <br/><br/><br/>
+
 
