@@ -403,6 +403,37 @@ db.books.findOneAndDelete({"name" : "mongoDB tutorial"}, {sort: { _id: -1 }})
 
 ## update
 ### mongodb의 update는 매우 좋은 것 같다. 여러가지 형식으로 document에 값을 수정, 추가, 삭제할 수 있다.
+### 명령어 구조
+```
+db.collection.update(
+   <query>,
+   <update>,
+   {
+     upsert: <boolean>,
+     multi: <boolean>,
+     writeConcern: <document>
+   }
+)
+```
+### <br/>
+
+| Parameter    | Type     | 설명                                                                                                                                                              |
+|--------------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| *query       | document | 업데이트 할 document의 criteria 를 정합니다. find() 메소드 에서 사용하는 query 와 같습니다.                                                                       |
+| *update      | document | document에 적용할 변동사항입니다.                                                                                                                                 |
+| upsert       | boolean  | Optional. (기본값: false) 이 값이 true 로 설정되면 query한 document가 없을 경우, 새로운 document를 추가합니다.                                                    |
+| multi        | boolean  | Optional. (기본값: false)  이 값이 true 로 설정되면, 여러개의 document 를 수정합니다.                                                                             |
+| writeConcern | document | Optional.  wtimeout 등 document 업데이트 할 때 필요한 설정값입니다. 기본 writeConcern을 사용하려면 이 파라미터를 생략하세요. 자세한 내용은 매뉴얼을 참조해주세요. |
+### <br/><br/>
+
+### 업데이트(set)
+### set으로 업데이트를 한다.
+### 아래 예시는 위의 update 문은 이미 있는 key에 새롭게 값을 수정하는 것이고, 아래 거는 없는 key를 새로 생성한 것이다.
+```
+db.books.update({"num" : 1}, {$set : {author : "jhshin 2"}})
+db.books.update({"num" : 1}, {$set : {update_test : "jhshin"}})
+```
+#### ![image](https://github.com/user-attachments/assets/fa42683e-0bcb-4c47-8435-b15f970aa82a)
 ### <br/><br/>
 
 ### 여러 document에 key 추가하기
