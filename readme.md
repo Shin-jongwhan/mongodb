@@ -313,8 +313,16 @@ db.books.find().sort({"_id" : -1})
 db.books.find().sort({"_id" : -1}).limit(1)
 ```
 #### ![image](https://github.com/user-attachments/assets/e159bc10-4e81-47ff-ac14-6767115de84f)
+### <br/><br/>
 
-
+### skip
+### 첫 번째 출력되는 것부터 skip 해서 출력한다.
+### db.\[collection\].find({condition}).skip(n)으로 사용한다.
+### ex) (num = 5가 출력이 안 된 걸 확인할 수 있다.)
+```
+db.books.find().sort({"_id" : -1}).skip(1)
+```
+#### ![image](https://github.com/user-attachments/assets/4f5a2264-357b-4fdd-ad83-b15b5934f9ee)
 ### <br/><br/><br/>
 
 
