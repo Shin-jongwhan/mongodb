@@ -224,7 +224,7 @@ db.books.find({$and : [{"num" : {$gte : 5}}, {"num" : {$lte : 10}}]})
 #### ![image](https://github.com/user-attachments/assets/3f300893-5c73-443f-b825-7232798ad4b1)
 ### <br/>
 
-### 특정 key만 조회
+### 특정 key만 조회(projection)
 ### 조건절 뒤에 {}로 조회할 key를 아래와 같이 작성한다.
 ```
 db.books.find({}, {"num": true})
@@ -282,7 +282,16 @@ db.books.insert(
 db.books.find({ arr : { $elemMatch : {$gte : 10, $lte : 15} } })
 ```
 #### ![image](https://github.com/user-attachments/assets/795d9d53-0726-470c-8733-87fa7769bd18)
+### <br/><br/>
+
+### elemMatch를 projection에 사용해보기
+### projection에 사용하면 배열에 존재하는 모든 element를 출력하지 않고, 해당하는 것만 출력해준다.
+```
+db.books.find({ arr : { $elemMatch : {$gte : 10, $lte : 15} } }, { arr : { $elemMatch : {$gte : 10, $lte : 15} } })
+```
+#### ![image](https://github.com/user-attachments/assets/26cb402f-dd6c-45ff-87a0-ff152d598584)
 ### <br/><br/><br/>
+
 
 ## document 삭제
 ### db.\[collection_name\].remove(criteria, justOne)
