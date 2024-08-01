@@ -137,6 +137,7 @@ db.books.insert(
 #### ![image](https://github.com/user-attachments/assets/13e471eb-1808-477c-b08f-e2f76bdad4a2)
 ### <br/><br/><br/>
 
+
 ## collection에서 특정 document 찾기(데이터 조회하기)
 ### db.\[collection_name\].find()로 찾는다.
 ### 전체를 찾고 싶다면 find() 안에 아무 것도 넣지 않으면 되고, 특정 조건으로 찾고 싶다면 json 형식으로 넣어주면 된다.
@@ -290,6 +291,30 @@ db.books.find({ arr : { $elemMatch : {$gte : 10, $lte : 15} } })
 db.books.find({ arr : { $elemMatch : {$gte : 10, $lte : 15} } }, { arr : { $elemMatch : {$gte : 10, $lte : 15} } })
 ```
 #### ![image](https://github.com/user-attachments/assets/26cb402f-dd6c-45ff-87a0-ff152d598584)
+### <br/><br/>
+
+### sort
+### find 이후 데이터를 특정 기준으로 sort할 때 사용한다.
+### db.\[collection\].find({condition}).sort({condition})와 같이 쓴다.
+### <br/>
+
+### id 기준으로 역순 ex) 
+```
+db.books.find().sort({"_id" : -1})
+```
+#### ![image](https://github.com/user-attachments/assets/60dbdf8a-ced3-4c39-870d-6c031185ba93)
+### <br/><br/>
+
+### limit
+### RDBMS의 limit과 같다.
+### db.\[collection\].find({condition}).limit(n)으로 사용한다.
+### ex)
+```
+db.books.find().sort({"_id" : -1}).limit(1)
+```
+#### ![image](https://github.com/user-attachments/assets/e159bc10-4e81-47ff-ac14-6767115de84f)
+
+
 ### <br/><br/><br/>
 
 
