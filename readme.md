@@ -9,12 +9,15 @@
 ### <br/>
 
 ### mongodb 공식 문서
-- remove 관련
+- remove
   - https://www.mongodb.com/ko-kr/docs/manual/reference/method/db.collection.remove/
+- collation
   - https://www.mongodb.com/ko-kr/docs/manual/reference/collation/
   - https://www.mongodb.com/ko-kr/docs/manual/reference/collation-locales-defaults/
-- where query 관련(javascript expression)
+- where query(javascript expression)
   - https://www.mongodb.com/ko-kr/docs/manual/reference/operator/query/where/
+- elemMatch
+  - https://www.mongodb.com/ko-kr/docs/manual/reference/operator/query/elemMatch/
 ### <br/><br/><br/>
 
 # 설치
@@ -240,8 +243,9 @@ db.books.find({"author" : {$regex:'[a-z]'}})
 #### ![image](https://github.com/user-attachments/assets/ee26b1ae-4356-4233-8b0d-0b43c381a6d3)
 ### <br/><br/>
 
-### where 연산자
+### where query
 ### javascript expression을 사용하여 검색하는 방법이다.
+### elemMatch와 같이 쓸 수 없다.
 ### 특별한 경우 말고는 mongodb에서 지원하는 다른 문법(기능)들이 있으니 그런 것들을 쓸 것 같다.
 ### 그리고 javascript expression을 처리하기 위해서 별도의 인식과 프로세스가 들어간다고 공식 문서에 나와 있다. 아마 나중에는 deprecated 될 듯 하다.
 #### ![image](https://github.com/user-attachments/assets/83f45212-719d-4f06-bc4d-31df4dd8cb66)
@@ -251,13 +255,33 @@ db.books.find({$where : "this.num === 1"})
 db.books.find({$where : "this.author == \"jhshin\""})
 ```
 #### ![image](https://github.com/user-attachments/assets/372e277c-6c7e-4e3c-b44c-b4cb7aeee90b)
-### <br/>
-
-
 ### <br/><br/>
 
-### 
+### elemMatch query
+### 배열로 이루어진 것에 대한 검색이다.
+### where과 같이 쓸 수 없다.
+### <br/>
 
+### 예제 collection
+```
+db.books.insert(
+  [
+    {"name": "mongoDB tutorial", "author": "jhshin", "num" : 1, "arr" : [1, 2, 3]},
+    {"name": "mongoDB tutorial", "author": "jhshin", "num" : 2, "arr" : [3, 5, 9]}, 
+    {"name": "mongoDB tutorial", "author": "jhshin", "num" : 3, "arr" : [19, 20, 25]}, 
+    {"name": "mongoDB tutorial", "author": "jhshin", "num" : 4, "arr" : [1, 5, 10]}, 
+    {"name": "mongoDB tutorial", "author": "jhshin", "num" : 5, "arr" : [10, 5, 3]}
+  ]
+)
+```
+#### ![image](https://github.com/user-attachments/assets/485cc9c0-26a4-45bd-b278-730432bfe84c)
+### <br/>
+
+### 배열에서 10 이상, 15이하인 항목이 하나나로 포함 되어 있으면 출력한다.
+```
+db.books.find({ arr : { $elemMatch : {$gte : 10, $lte : 15} } })
+```
+#### ![image](https://github.com/user-attachments/assets/795d9d53-0726-470c-8733-87fa7769bd18)
 ### <br/><br/><br/>
 
 ## document 삭제
@@ -333,3 +357,15 @@ db.books.findOneAndDelete({"name" : "mongoDB tutorial"}, {sort: { _id: -1 }})
 #### ![image](https://github.com/user-attachments/assets/f7bd150d-d514-46ed-9ed5-aff8457a0d82)
 #### ![image](https://github.com/user-attachments/assets/dbebac17-1311-4324-a097-d03d258f5d77)
 ### <br/><br/><br/>
+
+
+## update
+### mongodb의 update는 매우 좋은 것 같다. 여러가지 형식으로 document에 값을 수정, 추가, 삭제할 수 있다.
+### <br/><br/>
+
+### 여러 document에 key 추가하기
+```
+db.books.update({}, {$set : {arr : [1,2,3,4,5,6,7]}}, {multi : true})
+```
+#### ![image](https://github.com/user-attachments/assets/a98e789e-8a36-4972-b738-584c7e2ce46d)
+
