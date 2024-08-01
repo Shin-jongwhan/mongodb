@@ -426,14 +426,23 @@ db.collection.update(
 | writeConcern | document | Optional.  wtimeout 등 document 업데이트 할 때 필요한 설정값입니다. 기본 writeConcern을 사용하려면 이 파라미터를 생략하세요. 자세한 내용은 매뉴얼을 참조해주세요. |
 ### <br/><br/>
 
-### 업데이트(set)
+### 값 수정 / 추가(set)
 ### set으로 업데이트를 한다.
+### 업데이트할 때에는 id 값은 변하지 않는다.
 ### 아래 예시는 위의 update 문은 이미 있는 key에 새롭게 값을 수정하는 것이고, 아래 거는 없는 key를 새로 생성한 것이다.
 ```
 db.books.update({"num" : 1}, {$set : {author : "jhshin 2"}})
 db.books.update({"num" : 1}, {$set : {update_test : "jhshin"}})
 ```
 #### ![image](https://github.com/user-attachments/assets/fa42683e-0bcb-4c47-8435-b15f970aa82a)
+### <br/><br/>
+
+### 값 제거(unset)
+### unset으로 제거한다.
+```
+db.books.update({"num" : 1}, {$unset : {update_test : "jhshin"}})
+```
+#### ![image](https://github.com/user-attachments/assets/63c0c7e2-ce13-4b12-aee9-aca0e140e20a)
 ### <br/><br/>
 
 ### 여러 document에 key 추가하기
