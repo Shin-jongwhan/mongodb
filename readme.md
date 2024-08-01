@@ -13,6 +13,8 @@
   - https://www.mongodb.com/ko-kr/docs/manual/reference/method/db.collection.remove/
   - https://www.mongodb.com/ko-kr/docs/manual/reference/collation/
   - https://www.mongodb.com/ko-kr/docs/manual/reference/collation-locales-defaults/
+- where query 관련(javascript expression)
+  - https://www.mongodb.com/ko-kr/docs/manual/reference/operator/query/where/
 ### <br/><br/><br/>
 
 # 설치
@@ -225,16 +227,36 @@ db.books.find({$and : [{"num" : {$gte : 5}}, {"num" : {$lte : 10}}]})
 db.books.find({}, {"num": true})
 ```
 #### ![image](https://github.com/user-attachments/assets/09806d28-e92c-489c-bb9d-bef399d7e785)
-### <br/>
+### <br/><br/>
 
 ### 정규식 사용
 ### db.\[collection\].find({field : {$regex: '정규표현식'}})
+### 숫자에는 적용이 안 되는 듯 하다. 아무래도 정규식이 문자열을 인식하는 거라서..
+### 정규식 관련해서는 여러 참고자료가 있으니 다른 자료를 참고하도록 한다 !
 ```
 db.books.find({"author" : {$regex:'^j'}})
 db.books.find({"author" : {$regex:'[a-z]'}})
 ```
 #### ![image](https://github.com/user-attachments/assets/ee26b1ae-4356-4233-8b0d-0b43c381a6d3)
+### <br/><br/>
 
+### where 연산자
+### javascript expression을 사용하여 검색하는 방법이다.
+### 특별한 경우 말고는 mongodb에서 지원하는 다른 문법(기능)들이 있으니 그런 것들을 쓸 것 같다.
+### 그리고 javascript expression을 처리하기 위해서 별도의 인식과 프로세스가 들어간다고 공식 문서에 나와 있다. 아마 나중에는 deprecated 될 듯 하다.
+#### ![image](https://github.com/user-attachments/assets/83f45212-719d-4f06-bc4d-31df4dd8cb66)
+#### ![image](https://github.com/user-attachments/assets/a1f84646-3b20-41a1-9987-ec4766c15b11)
+```
+db.books.find({$where : "this.num === 1"})
+db.books.find({$where : "this.author == \"jhshin\""})
+```
+#### ![image](https://github.com/user-attachments/assets/372e277c-6c7e-4e3c-b44c-b4cb7aeee90b)
+### <br/>
+
+
+### <br/><br/>
+
+### 
 
 ### <br/><br/><br/>
 
